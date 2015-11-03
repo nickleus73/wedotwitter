@@ -1,0 +1,27 @@
+server:
+  build: ./docker/server
+  volumes:
+    - ./docker/server/sites-enabled/:/etc/apache2/sites-enabled/
+    - ./docker/server/php/php.ini:/usr/local/etc/php/conf.d/30-custom.ini
+    - ./docker/server/php/xdebug.ini:/usr/local/etc/php/conf.d/50-xdebug.ini
+    - ./www/html/development:/var/www/html
+  ports:
+    - 80:80
+  links:
+    - postgres:postgres
+    - maildev:maildev
+
+postgres:
+  image: postgres
+  volumes:
+    - ./var/local/postgresql:/var/lib/postgresql/data
+  environment:
+    - POSTGRES_DB=data
+    - POSTGRES_USER=admindata
+    - POSTGRES_PASSWORD=ght2qir2m1
+    - PGDATA=/var/lib/postgresql/data
+
+maildev:
+  image: djfarrelly/maildev
+  ports:
+    - "1080:80"
