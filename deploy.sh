@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-docker-compose -f $1.yml build
-
-./user.sh
-
 DIR="www/html/"$1
 
 if [ "$(ls -A $DIR)" ]; then
@@ -17,6 +13,3 @@ else
 fi
 
 ./user.sh
-
-docker-compose -f $1.yml up -d
-

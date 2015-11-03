@@ -1,10 +1,14 @@
 server:
-  build: ./docker/server/apache
+  build: ./docker/server/production
   volumes:
-    - ./docker/server/sites-enabled/:/etc/apache2/sites-enabled/
-    - ./docker/server/php/php.ini:/usr/local/etc/php/conf.d/30-custom.ini
-    - ./docker/server/php/xdebug.ini:/usr/local/etc/php/conf.d/50-xdebug.ini
+    - ./docker/server/production/sites-enabled/:/etc/apache2/sites-enabled/
+    - ./docker/server/production/php/php.ini:/usr/local/etc/php/conf.d/30-custom.ini
+    - ./docker/server/production/php/xdebug.ini:/usr/local/etc/php/conf.d/50-xdebug.ini
     - ./www/html/production:/var/www/html
+  environment:
+    - APP_ENV=production
+    - APP_DEBUG=false
+    - APP_KEY=DdQr2jPqj5SvoY3jveIY6hfCMakJKaEY
   ports:
     - 80:80
   links:
