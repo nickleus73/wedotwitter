@@ -9,6 +9,11 @@ server:
     - APP_ENV=production
     - APP_DEBUG=false
     - APP_KEY=DdQr2jPqj5SvoY3jveIY6hfCMakJKaEY
+    - DB_CONNECTION=pgsql
+    - DB_HOST=postgres
+    - DB_DATABASE=data
+    - DB_USERNAME=admindata
+    - DB_PASSWORD=ght2qir2m1
   ports:
     - 80:80
   links:
