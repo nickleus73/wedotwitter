@@ -1,14 +1,19 @@
 server:
-  build: ./docker/server/development
+  build: ./docker/server/production
   volumes:
-    - ./docker/server/development/sites-enabled/:/etc/apache2/sites-enabled/
-    - ./docker/server/development/php/php.ini:/usr/local/etc/php/conf.d/30-custom.ini
-    - ./docker/server/development/php/xdebug.ini:/usr/local/etc/php/conf.d/50-xdebug.ini
-    - ./www/html/development:/var/www/html
+    - ./docker/server/production/sites-enabled/:/etc/apache2/sites-enabled/
+    - ./docker/server/production/php/php.ini:/usr/local/etc/php/conf.d/30-custom.ini
+    - ./docker/server/production/php/xdebug.ini:/usr/local/etc/php/conf.d/50-xdebug.ini
+    - ./www/html/production:/var/www/html
   environment:
     - APP_ENV=production
     - APP_DEBUG=true
     - APP_KEY=DdQr2jPqj5SvoY3jveIY6hfCMakJKaEY
+    - DB_CONNECTION=pgsql
+    - DB_HOST=postgres
+    - DB_DATABASE=data
+    - DB_USERNAME=admindata
+    - DB_PASSWORD=ght2qir2m1
   ports:
     - 80:80
   links:

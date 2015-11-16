@@ -18,7 +18,6 @@ server:
     - 80:80
   links:
     - postgres:postgres
-    - maildev:maildev
 
 postgres:
   image: postgres
@@ -29,8 +28,3 @@ postgres:
     - POSTGRES_USER=admindata
     - POSTGRES_PASSWORD=ght2qir2m1
     - PGDATA=/var/lib/postgresql/data
-
-maildev:
-  image: djfarrelly/maildev
-  ports:
-    - "1080:80"

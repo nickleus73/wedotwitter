@@ -162,10 +162,6 @@ RUN add-apt-repository -y ppa:kirillshkrogalev/ffmpeg-next \
 ########################################################################################################################
 COPY run /usr/local/bin/
 
-RUN echo $ENV
-
-RUN chown -R www-data:www-data /var/www/html
-
 WORKDIR /var/www/html
 
 EXPOSE 80

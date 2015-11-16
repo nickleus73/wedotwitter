@@ -8,7 +8,7 @@ DIR="www/html/"$1
 
 if [ "$(ls -A $DIR)" ]; then
      echo "Take action $DIR is not Empty"
-     sudo docker run -ti -v $(pwd)"/"$DIR:/app composer/composer update
+#     sudo docker run -ti -v $(pwd)"/"$DIR:/app composer/composer update
 else
     echo "$DIR is Empty"
     echo $(pwd)"/"$DIR
