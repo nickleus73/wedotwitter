@@ -14,6 +14,10 @@ server:
     - DB_DATABASE=data
     - DB_USERNAME=admindata
     - DB_PASSWORD=ght2qir2m1
+
+    - FACEBOOK_ID=1090097681002559
+    - FACEBOOK_SECRET_CLIENT=fe2b1c6aff63424f2a5b3e2cbdcafc12
+    - FACEBOOK_CALLBACK=http://automated-blogger.com/admin/callback/facebook
   ports:
     - 80:80
   links:

@@ -3,4 +3,4 @@
 TEST=$(hostname | tr '[:upper:]' '[:lower:]')
 
 sudo chown -R $TEST:$TEST www
-sudo chmod -R 777 www/html/production/storage
+sudo chmod -R 777 www/html/$1/storage

@@ -1,10 +1,10 @@
 server:
   build: ./docker/server/production
   volumes:
-    - ./docker/server/production/sites-enabled/:/etc/apache2/sites-enabled/
-    - ./docker/server/production/php/php.ini:/usr/local/etc/php/conf.d/30-custom.ini
-    - ./docker/server/production/php/xdebug.ini:/usr/local/etc/php/conf.d/50-xdebug.ini
-    - ./www/html/production:/var/www/html
+    - ./docker/server/development/sites-enabled/:/etc/apache2/sites-enabled/
+    - ./docker/server/development/php/php.ini:/usr/local/etc/php/conf.d/30-custom.ini
+    - ./docker/server/development/php/xdebug.ini:/usr/local/etc/php/conf.d/50-xdebug.ini
+    - ./www/html/development:/var/www/html
   environment:
     - APP_ENV=production
     - APP_DEBUG=true
@@ -14,6 +14,10 @@ server:
     - DB_DATABASE=data
     - DB_USERNAME=admindata
     - DB_PASSWORD=ght2qir2m1
+
+    - FACEBOOK_ID=1641499756127430
+    - FACEBOOK_SECRET_CLIENT=8b1c01de9372d057cf58604daa91c4a5
+    - FACEBOOK_CALLBACK=http://automated-blogger.org/admin/callback/facebook
   ports:
     - 80:80
   links:
