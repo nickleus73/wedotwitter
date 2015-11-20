@@ -39,6 +39,7 @@ RUN install=" \
 		libssl-dev \
 		libxml2-dev \
 		xz-utils \
+		libjpeg-dev \
     " \
     && apt-get update \
     && apt-get install -y $install --no-install-recommends
@@ -119,6 +120,12 @@ RUN curl -SL "https://downloads.php.net/~ab/php-$PHP_VERSION.tar.xz" -o php.tar.
 		--enable-soap \
 		--enable-zip \
 		--with-gettext=shared \
+		--with-libpng \
+		--with-libjpeg \
+		--with-jpeg-dir=/usr \
+        --with-png-dir=/usr \
+        --enable-gd-native-ttf \
+        --enable-gd-jis-conv \
 	&& make -j"$(nproc)" \
 	&& make install \
 	&& { find /usr/local/bin /usr/local/sbin -type f -executable -exec strip --strip-all '{}' + || true; } \
