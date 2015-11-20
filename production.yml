@@ -21,7 +21,7 @@ server:
 
     - YOUTUBE_ID=499070319532-s6m1svpm3sfm5uu1bhhntecvcclq8151.apps.googleusercontent.com
     - YOUTUBE_SECRET_CLIENT=6Q1fawBiUrKwWIKls2Ch9e8m
-    - YOUTUBE_CALLBACK=http://automated-blogger.org/admin/callback/youtube
+    - YOUTUBE_CALLBACK=http://automated-blogger.com/admin/callback/youtube
   ports:
     - 80:80
   links:
