@@ -52,8 +52,12 @@ ENV PG_VERSION 9.4.4-1.pgdg80+1
 ENV PATH /usr/lib/postgresql/$PG_MAJOR/bin:$PATH
 ENV PGDATA /var/lib/postgresql/data
 
+RUN add-apt-repository "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main"
+RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+RUN apt-get update
+
 RUN install=" \
-        postgresql \
+        postgresql-$PG_MAJOR \
         postgresql-contrib \
         postgresql-common \
 	" \
