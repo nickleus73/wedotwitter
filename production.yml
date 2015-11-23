@@ -9,6 +9,7 @@ server:
     - APP_ENV=production
     - APP_DEBUG=false
     - APP_KEY=DdQr2jPqj5SvoY3jveIY6hfCMakJKaEY
+    - QUEUE_DRIVER=database
     - DB_CONNECTION=pgsql
     - DB_HOST=postgres
     - DB_DATABASE=data

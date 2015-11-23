@@ -9,6 +9,7 @@ server:
     - APP_ENV=development
     - APP_DEBUG=true
     - APP_KEY=DdQr2jPqj5SvoY3jveIY6hfCMakJKaEY
+    - QUEUE_DRIVER=database
     - DB_CONNECTION=pgsql
     - DB_HOST=postgres
     - DB_DATABASE=data
@@ -18,6 +19,10 @@ server:
     - FACEBOOK_ID=1641499756127430
     - FACEBOOK_SECRET_CLIENT=8b1c01de9372d057cf58604daa91c4a5
     - FACEBOOK_CALLBACK=http://automated-blogger.org/admin/callback/facebook
+
+#    - FACEBOOK_ID=1090097681002559
+#    - FACEBOOK_SECRET_CLIENT=fe2b1c6aff63424f2a5b3e2cbdcafc12
+#    - FACEBOOK_CALLBACK=http://automated-blogger.com/admin/callback/facebook
 
     - YOUTUBE_ID=499070319532-d8g9kct377s4qv23j7rkl1lau9j9qtfu.apps.googleusercontent.com
     - YOUTUBE_SECRET_CLIENT=hh4ZMyBW_3SD8NSLg45td1GY
