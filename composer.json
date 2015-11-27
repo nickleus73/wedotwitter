@@ -1,0 +1,6 @@
+{
+    "require": {
+        "socialiteproviders/youtube": "~1.1",
+        "payum/offline": "~1.0"
+    }
+}

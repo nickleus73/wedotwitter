@@ -24,6 +24,7 @@ server:
 #    - FACEBOOK_SECRET_CLIENT=fe2b1c6aff63424f2a5b3e2cbdcafc12
 #    - FACEBOOK_CALLBACK=http://automated-blogger.com/admin/callback/facebook
 
+    - YOUTUBE_API_KEY=AIzaSyCrTGoLnxj9XPxXoAgS8aXp5oI8Mib6sm0
     - YOUTUBE_ID=499070319532-d8g9kct377s4qv23j7rkl1lau9j9qtfu.apps.googleusercontent.com
     - YOUTUBE_SECRET_CLIENT=hh4ZMyBW_3SD8NSLg45td1GY
     - YOUTUBE_CALLBACK=http://automated-blogger.org/admin/callback/youtube
