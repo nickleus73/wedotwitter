@@ -92,7 +92,7 @@ COPY apache2.conf /etc/apache2/apache2.conf
 ########################################################################################################################
 # BUILD PHP
 ########################################################################################################################
-ENV PHP_VERSION 7.0.0RC5
+ENV PHP_VERSION 7.0.0
 ENV PHP_INI_DIR /usr/local/etc/php
 ENV PHP_EXTRA_CONFIGURE_ARGS --with-apxs2
 
