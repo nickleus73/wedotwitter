@@ -92,13 +92,14 @@ COPY apache2.conf /etc/apache2/apache2.conf
 ########################################################################################################################
 # BUILD PHP
 ########################################################################################################################
-ENV PHP_VERSION 7.0.0RC5
+ENV PHP_VERSION 7.0.0
 ENV PHP_INI_DIR /usr/local/etc/php
 ENV PHP_EXTRA_CONFIGURE_ARGS --with-apxs2
 
 RUN mkdir -p $PHP_INI_DIR/conf.d
 
-RUN curl -SL "https://downloads.php.net/~ab/php-$PHP_VERSION.tar.xz" -o php.tar.xz \
+RUN curl -SL "http://php.net/get/php-$PHP_VERSION.tar.xz/from/this/mirror" -o php.tar.xz \
+    && curl -SL "http://php.net/get/php-$PHP_VERSION.tar.xz.asc/from/this/mirror" -o php.tar.xz.asc \
 	&& mkdir -p /usr/src/php \
 	&& mkdir -p /usr/local/lib/php/extensions/no-debug-non-zts-20151012 \
 	&& tar -xof php.tar.xz -C /usr/src/php --strip-components=1 \
