@@ -4,7 +4,8 @@ server:
     - ./docker/server/production/sites-enabled/:/etc/apache2/sites-enabled/
     - ./docker/server/production/php/php.ini:/usr/local/etc/php/conf.d/30-custom.ini
     - ./docker/server/production/php/xdebug.ini:/usr/local/etc/php/conf.d/50-xdebug.ini
-    - ./var/ssl/:/etc/letsencrypt/live/
+    - ./var/letsencrypt/:/etc/letsencrypt/
+    - ./var/lib/letsencrypt:/var/lib/letsencrypt
     - ./www/html/production:/var/www/html
   environment:
     - APP_ENV=production
