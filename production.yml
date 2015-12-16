@@ -37,6 +37,7 @@ server:
     - SERVICE_PAYMENT=stripe
   ports:
     - 80:80
+    - 443:443
   links:
     - postgres:postgres
 
