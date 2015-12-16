@@ -172,8 +172,8 @@ RUN add-apt-repository -y ppa:kirillshkrogalev/ffmpeg-next \
 ########################################################################################################################
 # INSTALL let's encrypt
 #################### pr	####################################################################################################
-RUN mkdir /var/lib \
-	&& cd /var/lib \
+RUN mkdir /var/lib/ \
+	&& cd /var/lib/ \
 	&& git clone https://github.com/letsencrypt/letsencrypt \
 	&& cd letsencrypt \
 	&& ./letsencrypt-auto --help
