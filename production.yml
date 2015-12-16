@@ -19,6 +19,9 @@ server:
     - PAYPAL_CLIENT_ID=AWGZvWDxf4R_2TKMGIZyOKTGb4kRj4XtiyYt3a5W4HENkcPPLn_pMWw1ciwCOhL5WT6MFeKyUi5SspYp
     - PAYPAL_SECRET_ID=EKNtJQhz3mrSa0vzP3lVmpVn5cNgZAx1IPwsN82yUhi7DAv35HjVvJ4N3EKT4jj2H-f1R5ZcSXtZrlXx
 
+    - STRIPE_KEY=pk_live_rwRMsryGJbYdIF4p6cx6GJ3n
+    - STRIPE_SECRET=sk_live_ET2S8k7U1Sbrjp6HrK8QzayY
+
     - FACEBOOK_ID=1090097681002559
     - FACEBOOK_SECRET_CLIENT=fe2b1c6aff63424f2a5b3e2cbdcafc12
     - FACEBOOK_CALLBACK=http://automated-blogger.com/admin/callback/facebook
@@ -29,6 +32,7 @@ server:
     - YOUTUBE_CALLBACK=http://automated-blogger.com/admin/callback/youtube
 
     - APP_DEFAULT_DOMAIN=automated-blogger
+    - SERVICE_PAYMENT=stripe
   ports:
     - 80:80
   links:
