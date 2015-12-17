@@ -28,7 +28,7 @@ fi
 DIR="www/html/"$ENV
 
 # Run server in bash
-if [ "$1" == "-e" ]; then
+if [ "$1" == "--e" ]; then
     docker exec -it server bash
 fi
 
