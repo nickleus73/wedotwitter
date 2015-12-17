@@ -1,14 +1,22 @@
 #!/usr/bin/env bash
 
-docker-compose -f $1.yml build
+ENV="development"
+
+if [ "$1" == "-p" ]; then
+    ENV="production"
+fi
+
+echo $ENV
+
+docker-compose -f $ENV.yml build
 
 ./user.sh $1
 
-DIR="www/html/"$1
+DIR="www/html/"$ENV
 
 if [ "$(ls -A $DIR)" ]; then
      echo "Take action $DIR is not Empty"
-     sudo docker run -ti -v $(pwd)"/"$DIR:/app composer/composer update
+#     sudo docker run -ti -v $(pwd)"/"$DIR:/app composer/composer update
 else
     echo "$DIR is Empty"
     echo $(pwd)"/"$DIR
@@ -18,4 +26,4 @@ fi
 
 ./user.sh $1
 
-docker-compose -f $1.yml up -d
+docker-compose -f $ENV.yml up -d

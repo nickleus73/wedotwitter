@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
-TEST=$(hostname | tr '[:upper:]' '[:lower:]')
+ENV="development"
 
-sudo chown -R $TEST:$TEST www
-sudo chmod -R 777 www/html/$1/storage
+if [ "$1" == "-p" ]; then
+    ENV="production"
+fi
+
+USER=$(whoami)
+
+sudo chown -R $USER:$USER www
+sudo chmod -R 777 www/html/$ENV/storage
