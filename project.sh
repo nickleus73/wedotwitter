@@ -62,8 +62,6 @@ fi
 if [ "$1" == "--r" ]; then
     docker-compose -f $ENV.yml build
 
-    user $ENV
-
     build $DIR $USER $PASSWORD
 
     user $ENV
