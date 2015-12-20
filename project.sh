@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 ENV="development"
+USER=""
+PASSWORD=""
 
 user() {
     USER=$(whoami)
@@ -16,13 +18,21 @@ build() {
     else
         echo "$DIR is Empty"
         echo $(pwd)"/"$1
-        git clone git@178.62.82.235:root/automated-services.git $1
+        git clone http://$2:$3@178.62.82.235/root/automated-services.git $1
         sudo docker run -ti -v $(pwd)"/"$1:/app composer/composer install
     fi
 }
 
-if [ "$2" == "-p" ]; then
+if [ "$2" == "--p" ]; then
     ENV="production"
+fi
+
+if [ -n "$3" ]; then
+    USER=$3
+fi
+
+if [ -n "$4" ]; then
+    PASSWORD=$4
 fi
 
 DIR="www/html/"$ENV
@@ -42,13 +52,19 @@ if [ "$1" == "--u" ]; then
     user $ENV
 fi
 
+# Run server with phpunit
+if [ "$1" == "--unit" ]; then
+    docker exec -it server php artisan migrate:reset
+    docker exec -it server vendor/bin/phpunit
+fi
+
 # Build and run server
 if [ "$1" == "--r" ]; then
     docker-compose -f $ENV.yml build
 
     user $ENV
 
-    build $DIR
+    build $DIR $USER $PASSWORD
 
     user $ENV
 
