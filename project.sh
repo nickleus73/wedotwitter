@@ -56,8 +56,8 @@ fi
 
 # Run server with phpunit
 if [ "$1" == "--unit" ]; then
-    docker exec -it server php artisan migrate:reset
-    docker exec -it server vendor/bin/phpunit
+    docker exec server php artisan migrate:reset
+    docker exec server vendor/bin/phpunit
 fi
 
 # Build and run server
