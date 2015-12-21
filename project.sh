@@ -58,7 +58,7 @@ fi
 if [ "$1" == "--unit" ]; then
     docker exec server php artisan route:scan
     docker exec server php artisan migrate:reset
-    docker exec server vendor/bin/phpunit
+    docker exec server vendor/bin/phpunit --log-json /var/www/html/public/phpunit.json
 fi
 
 # Build and run server
