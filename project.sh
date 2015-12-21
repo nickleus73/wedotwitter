@@ -29,10 +29,12 @@ fi
 
 if [ -n "$3" ]; then
     USER=$3
+    echo "Set USER $USER"
 fi
 
 if [ -n "$4" ]; then
     PASSWORD=$4
+    echo "Set PASSWORD $PASSWORD"
 fi
 
 DIR="www/html/"$ENV
