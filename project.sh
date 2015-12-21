@@ -14,12 +14,12 @@ user() {
 build() {
     if [ "$(ls -A $DIR)" ]; then
      echo "Take action $DIR is not Empty"
-     sudo docker run -ti -v $(pwd)"/"$1:/app composer/composer update
+     sudo docker run -v $(pwd)"/"$1:/app composer/composer update
     else
         echo "$DIR is Empty"
         echo $(pwd)"/"$1
         git clone http://$2:$3@178.62.82.235/root/automated-services.git $1
-        sudo docker run -ti -v $(pwd)"/"$1:/app composer/composer install
+        sudo docker run -v $(pwd)"/"$1:/app composer/composer install
     fi
 }
 
