@@ -1,4 +1,5 @@
 server:
+  container_name: server
   build: ./docker/server/development
   volumes:
     - ./docker/server/development/sites-enabled/:/etc/apache2/sites-enabled/
@@ -40,6 +41,7 @@ server:
     - maildev:maildev
 
 postgres:
+  container_name: postgres
   image: postgres
   volumes:
     - ./var/local/postgresql:/var/lib/postgresql/data
@@ -50,6 +52,7 @@ postgres:
     - PGDATA=/var/lib/postgresql/data
 
 maildev:
+  container_name: maildev
   image: djfarrelly/maildev
   ports:
     - "1080:80"

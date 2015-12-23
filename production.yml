@@ -1,4 +1,5 @@
 server:
+  container_name: server
   build: ./docker/server/production
   volumes:
     - ./docker/server/production/sites-enabled/:/etc/apache2/sites-enabled/
@@ -42,6 +43,7 @@ server:
     - postgres:postgres
 
 postgres:
+  container_name: postgres
   image: postgres
   volumes:
     - ./var/local/postgresql:/var/lib/postgresql/data
