@@ -27,12 +27,12 @@ server:
 
     - FACEBOOK_ID=1090097681002559
     - FACEBOOK_SECRET_CLIENT=fe2b1c6aff63424f2a5b3e2cbdcafc12
-    - FACEBOOK_CALLBACK=http://automated-blogger.com/admin/callback/facebook
+    - FACEBOOK_CALLBACK=https://automated-blogger.com/admin/callback/facebook
 
     - YOUTUBE_API_KEY=AIzaSyCrTGoLnxj9XPxXoAgS8aXp5oI8Mib6sm0
     - YOUTUBE_ID=499070319532-s6m1svpm3sfm5uu1bhhntecvcclq8151.apps.googleusercontent.com
     - YOUTUBE_SECRET_CLIENT=6Q1fawBiUrKwWIKls2Ch9e8m
-    - YOUTUBE_CALLBACK=http://automated-blogger.com/admin/callback/youtube
+    - YOUTUBE_CALLBACK=https://automated-blogger.com/admin/callback/youtube
 
     - APP_DEFAULT_DOMAIN=automated-blogger
     - SERVICE_PAYMENT=stripe
