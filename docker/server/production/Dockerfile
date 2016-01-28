@@ -81,7 +81,8 @@ RUN rm -rf /var/www/html \
 
 RUN a2dismod mpm_event \
     && a2enmod mpm_prefork \
-    && a2enmod rewrite
+    && a2enmod rewrite \
+    && a2enmod ssl
 
 RUN mv /etc/apache2/apache2.conf /etc/apache2/apache2.conf.dist  \
     && rm /etc/apache2/conf-enabled/* /etc/apache2/sites-enabled/*
@@ -171,8 +172,9 @@ RUN add-apt-repository -y ppa:kirillshkrogalev/ffmpeg-next \
 
 ########################################################################################################################
 # INSTALL let's encrypt
-########################################################################################################################
-RUN cd /var \
+#################### pr	####################################################################################################
+RUN mkdir -p /var/lib/ \
+	&& cd /var/lib/ \
 	&& git clone https://github.com/letsencrypt/letsencrypt \
 	&& cd letsencrypt \
 	&& ./letsencrypt-auto --help
