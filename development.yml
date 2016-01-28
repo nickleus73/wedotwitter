@@ -32,6 +32,10 @@ server:
     - YOUTUBE_SECRET_CLIENT=hh4ZMyBW_3SD8NSLg45td1GY
     - YOUTUBE_CALLBACK=http://automated-blogger.org/admin/callback/youtube
 
+    - TWITTER_ID=8SHxkZSILUP6GxSkg9TLZ97Xx
+    - TWITTER_SECRET_CLIENT=EugD02mns4XVDDd2bZyq0RX3QYFsVFWvcrVqFxjM5eBGDPlIl7
+    - TWITTER_CALLBACK=http://automated-blogger.org/admin/callback/twitter
+
     - APP_DEFAULT_DOMAIN=automated-blogger
     - SERVICE_PAYMENT=stripe
   ports:
