@@ -47,8 +47,8 @@ RUN install=" \
 ########################################################################################################################
 # INSTALLATION POSTGRES
 ########################################################################################################################
-ENV PG_MAJOR 9.4
-ENV PG_VERSION 9.4.4-1.pgdg80+1
+ENV PG_MAJOR  9.5
+#ENV PG_VERSION 9.4.4-1.pgdg80+1
 ENV PATH /usr/lib/postgresql/$PG_MAJOR/bin:$PATH
 ENV PGDATA /var/lib/postgresql/data
 
@@ -93,7 +93,7 @@ COPY apache2.conf /etc/apache2/apache2.conf
 ########################################################################################################################
 # BUILD PHP
 ########################################################################################################################
-ENV PHP_VERSION 7.0.0
+ENV PHP_VERSION 7.0.3
 ENV PHP_INI_DIR /usr/local/etc/php
 ENV PHP_EXTRA_CONFIGURE_ARGS --with-apxs2
 
@@ -132,6 +132,7 @@ RUN curl -SL "http://php.net/get/php-$PHP_VERSION.tar.xz/from/this/mirror" -o ph
         --with-png-dir=/usr \
         --enable-gd-native-ttf \
         --enable-gd-jis-conv \
+        --enable-geoip \
 	&& make -j"$(nproc)" \
 	&& make install \
 	&& { find /usr/local/bin /usr/local/sbin -type f -executable -exec strip --strip-all '{}' + || true; } \
@@ -142,15 +143,15 @@ RUN curl -SL "http://php.net/get/php-$PHP_VERSION.tar.xz/from/this/mirror" -o ph
 ########################################################################################################################
 # INSTALL XDEBUG
 ########################################################################################################################
-RUN cd /tmp \
-	&& git clone https://github.com/xdebug/xdebug.git \
-	&& cd xdebug \
-	&& phpize \
-	&& ./configure \
-	--enable-xdebug \
-	&& make \
-	&& mkdir /usr/local/lib/php/extensions/no-debug-non-zts-20141001/ \
-	&& cp modules/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20141001/
+#RUN cd /tmp \
+#	&& git clone https://github.com/xdebug/xdebug.git \
+#	&& cd xdebug \
+#	&& phpize \
+#	&& ./configure \
+#	--enable-xdebug \
+#	&& make \
+#	&& mkdir /usr/local/lib/php/extensions/no-debug-non-zts-20141001/ \
+#	&& cp modules/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20141001/
 
 ########################################################################################################################
 # INSTALL NODEJS && NPM
@@ -171,8 +172,16 @@ RUN add-apt-repository -y ppa:kirillshkrogalev/ffmpeg-next \
 	&& apt-get install -y ffmpeg
 
 ########################################################################################################################
+# INSTALL GeoIP
+########################################################################################################################
+RUN mkdir -p /usr/local/share/GeoIP/ \
+	&& wget -N http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz \
+	&& gunzip GeoLiteCity.dat.gz \
+	&& mv GeoLiteCity.dat /usr/local/share/GeoIP/
+
+########################################################################################################################
 # INSTALL let's encrypt
-#################### pr	####################################################################################################
+########################################################################################################################
 RUN mkdir -p /var/lib/ \
 	&& cd /var/lib/ \
 	&& git clone https://github.com/letsencrypt/letsencrypt \
