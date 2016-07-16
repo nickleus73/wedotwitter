@@ -190,7 +190,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 ########################################################################################################################
 COPY run /usr/local/bin/
 
-WORKDIR /var/www/html
+WORKDIR /var/www
 
 #RUN composer --no-autoloader --no-scripts -n install
 
